@@ -4,4 +4,4 @@ Tecnologies: NodeJS, Express, Prisma, Typescript.
 
 Diagram:
 
-![diagram](https://github.com/user-attachments/assets/6a20dc3f-2340-45f8-b9e3-0e2e02bcd7d0)
+![diagram](https://github.com/user-attachments/assets/6ac4abb1-d1b1-4b53-b900-e4b06a17bb90)
