@@ -1,0 +1,13 @@
+{
+  "name": "goalgymbackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
