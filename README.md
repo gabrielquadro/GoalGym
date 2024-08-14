@@ -2,6 +2,8 @@ Backend system for controlling training, exercises and weight control at the gym
 
 Tecnologies: NodeJS, Express, Prisma, Typescript.
 
+Database: PostgreSQL
+
 Run: yarn dev
 
 Diagram:
