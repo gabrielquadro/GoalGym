@@ -12,3 +12,59 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id               String           @id @default(uuid())
+  email            String
+  password         String
+  created_at       DateTime?        @default(now())
+  updated_at       DateTime?        @default(now())
+  trainings        Training[]
+  workoutSessions  WorkoutSession[]
+
+  @@map("users")
+}
+
+model Training {
+  id               String           @id @default(uuid())
+  name             String
+  created_at       DateTime?        @default(now())
+  updated_at       DateTime?        @default(now())
+  userId           String
+  user             User             @relation(fields: [userId], references: [id])
+  exercises        Exercise[]
+  workoutSessions  WorkoutSession[]
+
+  @@map("trainings")
+}
+
+model Exercise {
+  id          String   @id @default(uuid())
+  name        String
+  repetitions Int
+  sets        Int
+  notes       String?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now())
+  
+  trainingId  String
+  training    Training @relation(fields: [trainingId], references: [id])
+
+  @@map("exercises")
+}
+
+model WorkoutSession {
+  id          String   @id @default(uuid())
+  date        DateTime @default(now())
+  duration    Float?
+  notes       String?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now())
+
+  trainingId  String
+  training    Training @relation(fields: [trainingId], references: [id])
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("workoutSessions")
+}
