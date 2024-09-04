@@ -11,6 +11,7 @@ import { UpdateTrainningController } from "./controllers/trainning/UpdateTrainni
 import { DeleteTrainningController } from "./controllers/trainning/DeleteTrainningController";
 import { CreateExerciseController } from "./controllers/exercise/CreateexerciseController";
 import { ListByTrainningController } from "./controllers/exercise/ListByTrainningController";
+import { DetailExerciseController } from "./controllers/exercise/DetailExerciseController";
 
 const router = Router();
 
@@ -30,5 +31,7 @@ router.delete("/trainning", isAuthenticated, new DeleteTrainningController().han
 //Exercise routes
 router.post("/exercise", isAuthenticated, new CreateExerciseController().handle)
 router.get('/trainning/exercises', isAuthenticated, new ListByTrainningController().handle )
+router.get("/exercise/detail", isAuthenticated, new DetailExerciseController().handle)
+
 
 export { router }
