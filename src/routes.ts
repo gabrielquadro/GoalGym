@@ -9,6 +9,7 @@ import { DetailTrainningController } from "./controllers/trainning/DetailTrainni
 import { ListTrainningController } from "./controllers/trainning/ListTrainningController";
 import { UpdateTrainningController } from "./controllers/trainning/UpdateTrainningController";
 import { DeleteTrainningController } from "./controllers/trainning/DeleteTrainningController";
+import { CreateExerciseController } from "./controllers/exercise/CreateexerciseController";
 
 const router = Router();
 
@@ -24,5 +25,9 @@ router.get("/trainning/detail", isAuthenticated, new DetailTrainningController()
 router.get("/trainnings", isAuthenticated, new ListTrainningController().handle)
 router.put("/trainning", isAuthenticated, new UpdateTrainningController().handle)
 router.delete("/trainning", isAuthenticated, new DeleteTrainningController().handle)
+
+//Exercise routes
+router.post("/exercise", isAuthenticated, new CreateExerciseController().handle)
+
 
 export { router }
