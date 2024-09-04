@@ -7,6 +7,7 @@ import { UpdateUserController } from "./controllers/user/UpdateUserController";
 import { CreateTrainningController } from "./controllers/trainning/CreateTrainningController";
 import { DetailTrainningController } from "./controllers/trainning/DetailTrainningController";
 import { ListTrainningController } from "./controllers/trainning/ListTrainningController";
+import { UpdateTrainningController } from "./controllers/trainning/UpdateTrainningController";
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.put("/user", isAuthenticated, new UpdateUserController().handle)
 router.post("/trainning", isAuthenticated, new CreateTrainningController().handle)
 router.get("/trainning/detail", isAuthenticated, new DetailTrainningController().handle)
 router.get("/trainnings", isAuthenticated, new ListTrainningController().handle)
+router.put("/trainning", isAuthenticated, new UpdateTrainningController().handle)
 
 export { router }
