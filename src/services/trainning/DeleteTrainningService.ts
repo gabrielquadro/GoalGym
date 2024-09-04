@@ -16,12 +16,18 @@ class DeleteTrainningService {
             throw new Error("Trainning not found");
         }
 
+        const deleteExercise = await prismaClient.exercise.deleteMany({
+            where: {
+                trainingId: trainning_id,
+            }
+        });
 
         const deleteTrainning = await prismaClient.training.delete({
             where: {
                 id: trainning_id,
             }
         });
+
 
         return deleteTrainning;
 
