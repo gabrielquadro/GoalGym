@@ -5,6 +5,7 @@ import { DetailUserController } from "./controllers/user/DetailsUserController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { UpdateUserController } from "./controllers/user/UpdateUserController";
 import { CreateTrainningController } from "./controllers/trainning/CreateTrainningController";
+import { DetailTrainningController } from "./controllers/trainning/DetailTrainningController";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.put("/user", isAuthenticated, new UpdateUserController().handle)
 
 //Trainning routes
 router.post("/trainning", isAuthenticated, new CreateTrainningController().handle)
+router.get("/trainning/detail", isAuthenticated, new DetailTrainningController().handle)
 
 export { router }
