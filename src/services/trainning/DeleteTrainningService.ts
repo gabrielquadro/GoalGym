@@ -1,11 +1,11 @@
 import prismaClient from "../../prisma"
 
-interface HaircutRequest {
+interface TrainningRequest {
     trainning_id: string;
 }
 
 class DeleteTrainningService {
-    async execute({ trainning_id }: HaircutRequest) {
+    async execute({ trainning_id }: TrainningRequest) {
         const existingTrainning = await prismaClient.training.findUnique({
             where: {
                 id: trainning_id,
